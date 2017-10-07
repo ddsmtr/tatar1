@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Лаб1</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Comfortaa|Fira+Sans|Marmelad|Roboto+Slab" rel="stylesheet">  -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
+</head>
+<body>
+	<header>
+		<div class="d8"><h1 align = center>Интервальные методы однопараметрической оптимизации</h1></div>
+	</header>
+	<div id="error">
+		
+	</div>
+	<main>
+		<form name="data">
+			<div id="form">
+				<div id="error"></div>
+				<label>f(x) = <input class="fx_write" type="text" name="fx" placeholder="3x^2+4x+2"/></label>
+				<label> Интервал : [ <input class="interval_write" type="text" name="left_border" placeholder="-1"> : <input class="interval_write" type="text" name="right_border" placeholder="1"> ]</label>
+				<label><input id="goform" type="button" value="Вычислить"/></label>
+			</div>
+		</form>
+	</main>
+	<div id="result">
+		
+	</div>
+	<section>
+	<!--С помощью display:none и тд сделать скрытый текст решения, чтобы видеть его только когда захочешь -->
+		<div id = "res_table">
+			<table>
+				<tr>
+					<td rowspan="2">Метод</td>
+					<td colspan="3">N</td>
+					<td colspan="3">a</td>
+
+				</tr>
+				<tr>
+					<td>e=10<sup>-1</sup></td>
+					<td>e=10<sup>-2</sup></td>
+					<td>e=10<sup>-3</sup></td>
+					<td>e=10<sup>-1</sup></td>
+					<td>e=10<sup>-2</sup></td>
+					<td>e=10<sup>-3</sup></td>
+				</tr>
+				<tr>
+					<td>Дихотомии</td>
+					<td id="dih_n1"></td>
+					<td id="dih_n2"></td>
+					<td id="dih_n3"></td>
+					<td id="dih_a1"></td>
+					<td id="dih_a2"></td>
+					<td id="dih_a3"></td>
+				</tr>
+				<tr>
+					<td>Золотого сечения</td>
+					<td id="gold_n1"></td>
+					<td id="gold_n2"></td>
+					<td id="gold_n3"></td>
+					<td id="gold_a1"></td>
+					<td id="gold_a2"></td>
+					<td id="gold_a3"></td>
+				</tr>
+				<tr>
+					<td>Равномерного поиска</td>
+					<td id="search_n1"></td>
+					<td id="search_n2"></td>
+					<td id="search_n3"></td>
+					<td id="search_a1"></td>
+					<td id="search_a2"></td>
+					<td id="search_a3"></td>
+				</tr>
+			</table>
+		</div>
+		<article>
+			<details>
+			  <summary>Метод дихотомии</summary>
+			  <p class="dop" id = "dichotomy">данные по дихотомии</p>
+			</details>
+		</article>
+		<article>
+			<details>
+			  <summary>Метод золотого сечения</summary>
+			  <p class="dop" id = "golden_section">данные по золотому сечению</p>
+			</details>
+		</article>
+		<article>
+			<details>
+			  <summary>Метод равномерного поиска</summary>
+			  <p class="dop" id = "search">данные по равномерному поиску</p>
+			</details>
+		</article>		
+	</section>
+
+	<!-- <script type="text/javascript" src="test_script.js"></script> -->
+	 <script type="text/javascript" src="test2.js"></script> 
+	<!-- <script type="text/javascript" src="script.js"></script> -->
+</body>
+</html>
