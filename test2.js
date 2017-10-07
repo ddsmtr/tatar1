@@ -1,6 +1,20 @@
 (function(){
 	goform.addEventListener("click", getFormData);
+	let arr = [1,1,1,1,12,3,4,5,6,7,8,8,9,4,5,6];
+	console.log(arr);
+	let arr2 = uniqueEl(arr);
+	console.log(arr2);
 })();
+function uniqueEl(arr){
+	arr.forEach(function(value,i){
+		arr.forEach(function(valIn,j){
+			if(valIn == value){
+				arr.splice(j,1);
+			}
+		});
+	});
+	return arr.split(" и ");
+};
 function getFormData(){
 	const form = document.forms.data;
 	const fx = form.fx.value.replace(/[\s*]/g,""); // Надо доработать, чтобы чепуху нельзя было ввести
@@ -8,16 +22,23 @@ function getFormData(){
 	const b = Number(form.right_border.value); 
 	const e = [0.1, 0.01, 0.001];
 
-	let regFx = /[^\dx\*\-\+\^]/ig; //^[\d\*-\+\^]/gi;
-	if(fx.match(regFx) != null){
+	let regFx = /[^\dx\*\-\+\^.]/ig; //^[\d\*-\+\^]/gi;
+	try{
+		if(fx.match(regFx) != null){
 		//alert(fx.match(regFx));
-		alert("нельзя вводить символы типа : "+ fx.match(regFx) );// 1. брсить искобение
+		throw new Error("нельзя вводить символы типа : "+ uniqueEl(fx.match(regFx)));
+																	// 1. брсить искобение
 																	//	2. перевести массив в строку и убрать повторяющиеся символы
 																	//3. далее вывести пользователю для справки запрещенные символы 
+		}
+		 if(isNaN(a) || isNaN(b)){
+		 	alert("некорректный интервал. Допустим только ввод чисел");	// ПРЕРВАТЬ ДАЛЬНЕЙШЕЕ ВЫОПЛНЕНИЕ или булевый оператор заветси в начале и по нему ориентироваться
+		 }
 	}
-	 if(isNaN(a) || isNaN(b)){
-	 	alert("некорректный интервал. Допустим только ввод чисел");	// ПРЕРВАТЬ ДАЛЬНЕЙШЕЕ ВЫОПЛНЕНИЕ или булевый оператор заветси в начале и по нему ориентироваться
-	 }
+	catch(e){
+			alert(e.message);
+	}
+	
 	// let regInterval = /[^\d]/;
 	// if (a.math(regInterval) != null && b.match(regInterval) != null){
 	// 	alert("некорректный интервал. Допустим только ввод чисел");
