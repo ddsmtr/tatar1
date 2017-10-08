@@ -2,20 +2,70 @@
   box-sizing: border-box;
   margin: 0px;
 }
+.menu-main {
+  list-style: none;
+  text-align: center;
+  border-bottom: 1px solid #848484;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
 
+}
+.menu-main li {
+  display: inline-block;
+  padding:10px;
+}
+.menu-main li:after {
+  content: "|";
+  color: #606060;
+  display: inline-block;
+  vertical-align:middle;
+}
+.menu-main a {
+  text-decoration: none;
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  padding: 8px 0px 8px 0px;
+  margin: 0 21px 0 21px;
+  font-size: 17px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color .1s;
+}
+.menu-main a:visited {
+  color: #424242;
+}
+.menu-main a:hover{
+  color: #088A68;
+}
 header{
   width: 80%;
   margin: 0 auto 0 auto; /*20px - как переменную(она + в форме низ) */
   text-align: center;
-  padding: 30px;
+  padding: 40px;
   font-family: 'PT Sans', sans-serif;
-    color:#424242;
+  color: #424242;
+  /*background-color:#2E2E2E;*/
+}
+#nav{
+  background-color: red;
 }
 
 #wrapper{
   width: 80%;
-  margin: 0 auto;
+  margin: 20px   auto;
   background: #fff;
+}
+#error{
+  display:none;
+  background-color: #F5A9A9;
+  margin-bottom: 20px;
+  padding:20px;
+  /*border: 1px solid #B40404; */
+  border-radius: 4px;
+  color: #B40404;
+
+  font: 18px 'PT Sans', sans-serif;
+
 }
 /*наследник от общего*/
 #wForm{
@@ -36,15 +86,6 @@ input[type="text"]{
   height: 40px;
   font: 20px 'PT Sans', sans-serif;
 }
-/**/
-input:valid {
-  border-color: green;
-}
-
-input:invalid {
-  border-color: red;
-}
-/**/
 label{
   margin-left : 20px;
 }

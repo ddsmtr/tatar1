@@ -1,6 +1,17 @@
 (function(){
 	goform.addEventListener("click", getFormData);
 })();
+// function test(){
+// 	let path = window.location.href;
+// 	let arr = path.split('/');
+// 	console.log(arr);
+//     // document.getElementsByTagName('a').each(function() {
+//     //     if ('http://site.ru'+$(this).attr('href') == window.location.href)
+//     //     {
+//     //         $(this).addClass('active');
+//     //     }
+//     // });
+// };
 function getFormData(){
 	const form = document.forms.data;
 	const fx = form.fx.value.replace(/[\s*]/g,"");
@@ -10,6 +21,8 @@ function getFormData(){
 
 	let regFx = /[^\dx\*\-\+\^.]/ig;
 	try{
+		document.getElementById("error").style.display="none";
+		form.fx.style.border="none";
 		document.getElementById("error").innerHTML = "";
 		if(fx.match(regFx) != null){
 			throw new Error("нельзя вводить символы типа : " + fx.match(regFx));
@@ -116,6 +129,8 @@ function getFormData(){
 	}
 	catch(e){
 		document.getElementById("error").innerHTML = "Произошла ошибка заполнения данных : " + e.message;
+		document.getElementById("error").style.display="block";
+		form.fx.style.border="1px solid red";
 	}
 };
 function calcFx(param,...args){
