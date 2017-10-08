@@ -5,8 +5,8 @@
 .menu-main {
   list-style: none;
   text-align: center;
-  border-bottom: 1px solid #848484;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  border-bottom: 1px solid #D8D8D8;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
 
 }
 .menu-main li {
