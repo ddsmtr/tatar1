@@ -143,7 +143,7 @@ th, td {
 #wDop{
   background-color: #A9F5BC;
   padding: 30px;
-  /*display:none;*/
+  display:none;
 
   text-align: center;
   font: 'PT Sans', sans-serif;

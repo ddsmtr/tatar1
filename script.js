@@ -111,6 +111,8 @@ function getFormData(){
 						document.getElementById(search_n).innerHTML = resultSearch.N;
 						document.getElementById(search_a).innerHTML = resultSearch.a.toFixed(4);
 
+						//document.getElementById("gold_decision").innerHTML += "------------ <br>" ;
+
 					});
 				//}else{
 				//	console.log("знак не поменялся. необходимо выбрать другой интервал");
@@ -122,15 +124,15 @@ function getFormData(){
 			}
 		}
 		else{ // есть a или b
-			let message = (~(fx.indexOf("^"))) ? "c = 0" : "нет степенной функции. Определить нельзя";
+			let message = (~(fx.indexOf("^"))) ? "c = 0" : "нет степенной функции. Определить нельзя"; // c=0 это не ошибка
 			throw new Error(message);
 		}
 		//
 	}
 	catch(e){
-		document.getElementById("error").innerHTML = "Произошла ошибка заполнения данных : " + e.message;
+		document.getElementById("error").innerHTML = "Произошла ошибка : " + e.message;
 		document.getElementById("error").style.display="block";
-		form.fx.style.border="1px solid red";
+		//form.fx.style.border="1px solid red";
 	}
 };
 function calcFx(param,...args){
@@ -206,6 +208,7 @@ function goldSection(a,b,e,...args){//	(arg1,arg2,arg3,sign1,sign2)
 			valueFxFromLambda = calcFx(lambda, args[0],args[1],args[2],args[3],args[4]);
 		}
 		//console.log("["+a+";"+b+"]  c = " + (a+b)/2);
+		//document.getElementById("gold_decision").innerHTML += "[" + a.toFixed(3) + ";" + b.toFixed(3) + "]  c = " + ((a+b)/2).toFixed(3) + "<br>";
 		i++;
 	}
 	return {"x" : (a+b)/2, 
@@ -223,9 +226,7 @@ function search(a,b,e,...args){
 	}
 	//console.log("arr search length = " + arr_x.length);
 	let min = calcFx(arr_x[0],args[0],args[1],args[2],args[3],args[4]);
-	let x;
-	let tmp;
-	let count = 0;
+	let x,tmp;
 
 	for(i in arr_x){
 		tmp = calcFx(arr_x[i],args[0],args[1],args[2],args[3],args[4]);
@@ -234,10 +235,9 @@ function search(a,b,e,...args){
 			x = arr_x[i];
 		}
 		else continue;
-		count++;
 	}
 	return {"x" : Number(x),
-			"a" : ((Math.abs(b-a))/n)/intervalLengthStart, // хз. УТОЧНИТЬ!
-			"N" : Number(count)
+			"a" : ((Math.abs(b-a))/n)/intervalLengthStart, //  УТОЧНИТЬ!
+			"N" : Number(n)
 			};
 };
