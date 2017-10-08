@@ -1,0 +1,102 @@
+*{
+	box-sizing: border-box;
+	margin: 0px;
+}
+
+header{
+	width: 80%;
+	margin: 0 auto 0 auto; /*20px - как переменную(она + в форме низ) */
+	text-align: center;
+	padding: 30px;
+	font-family: 'PT Sans', sans-serif;
+  	color:#424242;
+}
+
+#wrapper{
+ 	width: 80%;
+  	margin: 0 auto;
+  	background: #fff;
+}
+/*наследник от общего*/
+#wForm{
+	background-color: #F2F2F2;/*тоже повтор в табличной обертке +2 следующих*/
+	border: 1px solid #FAFAFA;
+  	border-radius: 4px;
+	padding: 35px;
+	margin-bottom: 20px;
+
+	font: 24px 'PT Sans', sans-serif; /*надо выести это в родитель и наследовать*/
+	text-align: center;
+	color:#424242;
+}
+input[type="text"]{
+	border-radius: 4px;
+  	outline: none;
+  	border: none;
+  	height: 40px;
+  	font: 20px 'PT Sans', sans-serif;
+}
+label{
+	margin-left : 20px;
+}
+.interval_write{
+	width:35px;
+  	text-align: center;
+  	font: 18px 'PT Sans', sans-serif;
+}
+.fx_write{
+	text-align: left;
+	width:400px;
+  	padding:12px;
+}
+input[type="button"]{
+	height:60px;
+	width:150px;
+	font: 19px 'PT Sans', sans-serif;
+	background: linear-gradient(#088A4B, #088A68);
+	border: 1;
+  	color: #fff;
+	border:none;
+  	border-radius: 7px;
+	cursor: pointer;
+  	font-weight: bold;
+  	padding: 8px 16px;
+}
+input[type="button"]:hover{
+  	background: linear-gradient(#04B486, #04B45F);
+}
+input[type="text"]:focus{
+  	border: 1px solid #088A85;
+}
+#wTable{
+	background-color: #F2F2F2;
+	border: 1px solid #FAFAFA;
+  	border-radius: 4px;
+
+  	font: 24px 'PT Sans', sans-serif;
+  	padding:20px;
+}
+table{
+	background-color: white;
+	border-collapse: collapse;
+	border: 1px solid #c6c7cc;
+	width:100%;
+	text-align: center;
+	margin-bottom: 35px;
+}
+th, td {
+  	border-collapse: collapse;
+  	border: 1px solid #c6c7cc;
+  	padding: 15px;
+  	text-align: center;
+}
+#wDop{
+	background-color: #A9F5BC;
+	padding: 30px;
+	/*display:none;*/
+
+	text-align: center;
+	font: 'PT Sans', sans-serif;
+	color:#0A2A12;
+	font-weight: bold;
+}
